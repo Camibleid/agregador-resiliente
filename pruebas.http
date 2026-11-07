@@ -1,0 +1,109 @@
+# Colección de pruebas — Agregador resiliente de APIs
+# Se ejecuta con la extensión "REST Client" de VS Code (o el cliente HTTP de JetBrains).
+# Antes: arrancar el servicio inestable y el agregador (ver README).
+
+@agregador = http://127.0.0.1:8000
+@inestable = http://127.0.0.1:9000
+
+### 0. Servicio inestable: salud y parámetros con que se arrancó
+GET {{inestable}}/config
+
+### 1. Salud del agregador -> 200
+GET {{agregador}}/salud
+
+### 2. Vaciar la caché para empezar en frío -> 204
+DELETE {{agregador}}/v1/cache
+
+### 3. Resumen (primera llamada: va a PokeAPI) -> 200, origen_datos_pokemon = "api"
+GET {{agregador}}/v1/equipos/fire/resumen
+
+### 4. Resumen (segunda llamada: sale de la caché) -> 200, origen_datos_pokemon = "cache"
+#     Compare latencias_ms.pokeapi con la petición 3.
+GET {{agregador}}/v1/equipos/fire/resumen
+
+### 5. Resumen con otro límite de Pokémon -> 200
+GET {{agregador}}/v1/equipos/water/resumen?limite=5
+
+### 6. Estadísticas de la caché (aciertos / fallos) -> 200
+GET {{agregador}}/v1/cache
+
+### 7. Tipo inexistente en PokeAPI -> 404 (no se reintenta)
+GET {{agregador}}/v1/equipos/tipoquenoexiste/resumen
+
+### 8. Parámetro de ruta inválido -> 422
+GET {{agregador}}/v1/equipos/f1re/resumen
+
+### 9. Parámetro de consulta fuera de rango -> 422
+GET {{agregador}}/v1/equipos/fire/resumen?limite=50
+
+### 10. Lista completa de sensores (recorre toda la paginación con reintentos) -> 200
+GET {{agregador}}/v1/sensores
+
+### 11. Lectura de un sensor existente -> 200
+GET {{agregador}}/v1/sensores/S-001/lectura
+
+### 12. Lectura de un sensor inexistente -> 404 (el 404 del servicio inestable NO se reintenta)
+GET {{agregador}}/v1/sensores/S-999/lectura
+
+### 13. Id de sensor con formato inválido -> 422
+GET {{agregador}}/v1/sensores/sensor1/lectura
+
+### 14. Crear alerta (petición original) -> 201, cabecera Idempotent-Replayed: false
+POST {{agregador}}/v1/alertas
+Content-Type: application/json
+Idempotency-Key: prueba-idem-001
+
+{
+  "nivel": "critico",
+  "mensaje": "Fallo en el servidor de sensores",
+  "sensor_id": "S-001"
+}
+
+### 15. Reintento con la MISMA clave y el mismo cuerpo -> misma id_alerta, Idempotent-Replayed: true
+POST {{agregador}}/v1/alertas
+Content-Type: application/json
+Idempotency-Key: prueba-idem-001
+
+{
+  "nivel": "critico",
+  "mensaje": "Fallo en el servidor de sensores",
+  "sensor_id": "S-001"
+}
+
+### 16. Comprobar que solo existe UNA alerta con esa clave -> 200
+GET {{agregador}}/v1/alertas
+
+### 17. Misma clave con un cuerpo distinto -> 422
+POST {{agregador}}/v1/alertas
+Content-Type: application/json
+Idempotency-Key: prueba-idem-001
+
+{
+  "nivel": "info",
+  "mensaje": "Otro mensaje",
+  "sensor_id": "S-002"
+}
+
+### 18. Sin cabecera Idempotency-Key -> 422
+POST {{agregador}}/v1/alertas
+Content-Type: application/json
+
+{
+  "nivel": "critico",
+  "mensaje": "Sin clave",
+  "sensor_id": "S-001"
+}
+
+### 19. Cuerpo inválido (nivel no permitido) -> 422
+POST {{agregador}}/v1/alertas
+Content-Type: application/json
+Idempotency-Key: prueba-idem-002
+
+{
+  "nivel": "urgentisimo",
+  "mensaje": "Nivel inválido",
+  "sensor_id": "S-001"
+}
+
+### 20. Alerta inexistente -> 404
+GET {{agregador}}/v1/alertas/ALT-NOEXISTE
