@@ -1,0 +1,73 @@
+00:24:43.504 INFO    Servicio inestable: http://127.0.0.1:9000 | PokeAPI: http://127.0.0.1:9100/api/v2 | timeout=5.0s | intentos=5 | TTL=60.0s
+00:24:49.435 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 503 -> esperando 0.49 s
+00:24:49.929 WARNING [Servicio inestable /sensores] intento 2/5 falló: HTTP 503 -> esperando 0.98 s
+00:24:50.918 INFO    [Servicio inestable /sensores] intento 3/5 -> 200 (recuperado)
+00:24:58.934 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 503 -> esperando 0.35 s
+00:25:03.291 INFO    [Servicio inestable /sensores] intento 2/5 -> 200 (recuperado)
+00:25:03.291 INFO    GET /v1/sensores -> 200 (17879.6 ms)
+00:25:03.308 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 503 -> esperando 0.36 s
+00:25:03.674 INFO    [Servicio inestable /sensores] intento 2/5 -> 200 (recuperado)
+00:25:03.676 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 503 -> esperando 0.47 s
+00:25:04.155 INFO    [Servicio inestable /sensores] intento 2/5 -> 200 (recuperado)
+00:25:04.157 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 429 (Retry-After: 2) -> esperando 2.20 s
+00:25:06.362 INFO    [Servicio inestable /sensores] intento 2/5 -> 200 (recuperado)
+00:25:06.365 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 503 -> esperando 0.45 s
+00:25:06.818 WARNING [Servicio inestable /sensores] intento 2/5 falló: HTTP 503 -> esperando 0.81 s
+00:25:07.633 INFO    [Servicio inestable /sensores] intento 3/5 -> 200 (recuperado)
+00:25:07.635 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 429 (Retry-After: 2) -> esperando 2.13 s
+00:25:09.767 WARNING [Servicio inestable /sensores] intento 2/5 falló: HTTP 429 (Retry-After: 2) -> esperando 2.09 s
+00:25:11.864 INFO    [Servicio inestable /sensores] intento 3/5 -> 200 (recuperado)
+00:25:11.865 INFO    GET /v1/sensores -> 200 (8561.0 ms)
+00:25:11.879 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 503 -> esperando 0.35 s
+00:25:12.235 INFO    [Servicio inestable /sensores] intento 2/5 -> 200 (recuperado)
+00:25:12.239 INFO    GET /v1/sensores -> 200 (366.4 ms)
+00:25:12.248 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 429 (Retry-After: 2) -> esperando 2.13 s
+00:25:14.384 WARNING [Servicio inestable /sensores] intento 2/5 falló: HTTP 503 -> esperando 0.96 s
+00:25:15.352 WARNING [Servicio inestable /sensores] intento 3/5 falló: HTTP 503 -> esperando 1.30 s
+00:25:16.658 WARNING [Servicio inestable /sensores] intento 4/5 falló: HTTP 429 (Retry-After: 2) -> esperando 2.24 s
+00:25:18.898 ERROR   [Servicio inestable /sensores] se agotaron los 5 intentos (último: HTTP 503)
+00:25:18.898 INFO    GET /v1/sensores -> 502 (6651.7 ms)
+00:25:18.910 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 503 -> esperando 0.28 s
+00:25:19.193 WARNING [Servicio inestable /sensores] intento 2/5 falló: HTTP 503 -> esperando 0.92 s
+00:25:20.115 INFO    [Servicio inestable /sensores] intento 3/5 -> 200 (recuperado)
+00:25:20.116 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 503 -> esperando 0.29 s
+00:25:20.411 WARNING [Servicio inestable /sensores] intento 2/5 falló: HTTP 503 -> esperando 0.86 s
+00:25:21.273 WARNING [Servicio inestable /sensores] intento 3/5 falló: HTTP 503 -> esperando 1.48 s
+00:25:22.753 INFO    [Servicio inestable /sensores] intento 4/5 -> 200 (recuperado)
+00:25:30.763 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 503 -> esperando 0.33 s
+00:25:31.101 INFO    [Servicio inestable /sensores] intento 2/5 -> 200 (recuperado)
+00:25:31.101 INFO    GET /v1/sensores -> 200 (12193.4 ms)
+00:25:31.118 INFO    GET /v1/sensores/S-999/lectura -> 404 (4.6 ms)
+00:25:31.158 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 503 -> esperando 0.29 s
+00:25:31.160 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 429 (Retry-After: 2) -> esperando 2.06 s
+00:25:31.161 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 429 (Retry-After: 2) -> esperando 2.09 s
+00:25:31.450 INFO    [Servicio inestable /sensores] Retry-After vigente para 127.0.0.1:9000: esperando 1.80 s antes de llamar
+00:25:33.223 INFO    [Servicio inestable /sensores] Retry-After vigente para 127.0.0.1:9000: esperando 0.03 s antes de llamar
+00:25:33.258 WARNING [Servicio inestable /sensores] intento 2/5 falló: HTTP 503 -> esperando 0.86 s
+00:25:33.259 WARNING [Servicio inestable /sensores] intento 2/5 falló: HTTP 503 -> esperando 0.65 s
+00:25:33.260 WARNING [Servicio inestable /sensores] intento 2/5 falló: HTTP 503 -> esperando 0.73 s
+00:25:33.910 INFO    [Servicio inestable /sensores] intento 3/5 -> 200 (recuperado)
+00:25:33.912 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 503 -> esperando 0.37 s
+00:25:33.989 INFO    [Servicio inestable /sensores] intento 3/5 -> 200 (recuperado)
+00:25:33.993 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 503 -> esperando 0.29 s
+00:25:34.119 WARNING [Servicio inestable /sensores] intento 3/5 falló: HTTP 503 -> esperando 1.69 s
+00:25:34.285 INFO    [Servicio inestable /sensores] intento 2/5 -> 200 (recuperado)
+00:25:34.289 WARNING [Servicio inestable /sensores] intento 2/5 falló: HTTP 503 -> esperando 0.71 s
+00:25:34.291 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 503 -> esperando 0.36 s
+00:25:34.654 INFO    [Servicio inestable /sensores] intento 2/5 -> 200 (recuperado)
+00:25:34.656 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 429 (Retry-After: 2) -> esperando 2.00 s
+00:25:34.999 INFO    [Servicio inestable /sensores] Retry-After vigente para 127.0.0.1:9000: esperando 1.66 s antes de llamar
+00:25:35.814 INFO    [Servicio inestable /sensores] Retry-After vigente para 127.0.0.1:9000: esperando 0.84 s antes de llamar
+00:25:36.662 WARNING [Servicio inestable /sensores] intento 2/5 falló: HTTP 429 (Retry-After: 2) -> esperando 2.08 s
+00:25:36.664 WARNING [Servicio inestable /sensores] intento 3/5 falló: HTTP 429 (Retry-After: 2) -> esperando 2.18 s
+00:25:36.664 WARNING [Servicio inestable /sensores] intento 4/5 falló: HTTP 429 (Retry-After: 2) -> esperando 2.25 s
+00:25:38.746 INFO    [Servicio inestable /sensores] Retry-After vigente para 127.0.0.1:9000: esperando 0.17 s antes de llamar
+00:25:38.846 INFO    [Servicio inestable /sensores] Retry-After vigente para 127.0.0.1:9000: esperando 0.07 s antes de llamar
+00:25:38.924 ERROR   [Servicio inestable /sensores] se agotaron los 5 intentos (último: HTTP 503)
+00:25:38.924 INFO    GET /v1/sensores -> 502 (7777.0 ms)
+00:25:38.930 INFO    [Servicio inestable /sensores] intento 3/5 -> 200 (recuperado)
+00:25:38.930 INFO    GET /v1/sensores -> 200 (7783.6 ms)
+00:25:42.930 INFO    [Servicio inestable /sensores] intento 4/5 -> 200 (recuperado)
+00:25:42.933 WARNING [Servicio inestable /sensores] intento 1/5 falló: HTTP 503 -> esperando 0.50 s
+00:25:43.436 INFO    [Servicio inestable /sensores] intento 2/5 -> 200 (recuperado)
+00:25:43.436 INFO    GET /v1/sensores -> 200 (12293.2 ms)
